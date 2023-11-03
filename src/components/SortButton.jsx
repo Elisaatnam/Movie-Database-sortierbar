@@ -9,11 +9,11 @@ export const SortButton = ({ text, sort }) => {
 	//Sortierfunktionen je nachdem welcher button gecklickt wurde bzw je nachdem welcher prop (props.sort oder auch {sort}) mitgekommen ist
 	const handleSort = () => {
 		if (sort === "dateA") {
-			sortedData.sort((a, b) => a.year - b.year);
+			sortedData.sort((a, b) => Number(a.year) - Number(b.year));
 		} else if (sort === "dateD") {
-			sortedData.sort((a, b) => b.year - a.year);
+			sortedData.sort((a, b) => Number(b.year) - Number(a.year));
 		} else if (sort === "rate") {
-			sortedData.sort((a, b) => b.rate - a.rate);
+			sortedData.sort((a, b) => Number(b.rate) - Number(a.rate));
 		} else if (sort === "az") {
 			sortedData.sort((a, b) => a.title.localeCompare(b.title));
 		} else {

@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 import { SortButton } from "../components/SortButton";
 import { MovieContext } from "../context/MovieContext";
 import { MovieCard } from "../components/MovieCard";
+import { GenreButton } from "../components/GenreButton";
+import { GenreSection } from "../components/GenreSection";
 
 export const Home = () => {
 	// Ich verwende den 'useState'-Hook, um den Zustand für die Eingabe im Suchfeld zu erstellen.
@@ -11,7 +13,7 @@ export const Home = () => {
 	const { movieData } = useContext(MovieContext);
 
 	// Ich erstelle einen weiteren Zustand 'filteredData', um die gefilterten Filmdaten zu speichern.
-	const [filteredData, setFilteredData] = useState(movieData);
+	const [filteredData, setFilteredData] = useState([...movieData]);
 
 	// Ich verwende 'useEffect', um die Filmdaten zu filtern, wenn sich die Sucheingabe oder die Filmdaten ändern.
 	useEffect(() => {
@@ -35,6 +37,11 @@ export const Home = () => {
 				<SortButton text='A-Z' sort='az' />
 				<SortButton text='Z-A' sort='za' />
 			</div>
+
+			<GenreSection
+				filteredData={filteredData}
+				setFilteredData={setFilteredData}
+			/>
 
 			{/* Hier erstelle ich ein Eingabefeld für die Filmesuche und verbinde es mit dem 'searchInput'-Zustand. */}
 			<input

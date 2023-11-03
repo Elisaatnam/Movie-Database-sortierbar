@@ -18,7 +18,7 @@ export const MovieCard = ({ data, index }) => {
 					</div>
 				</div>
 				{/* Hier zeige ich das Genre des Films an. */}
-				<p>{data.genre}</p>
+				<p>{data.genre.join(", ")}</p>
 
 				<div className='card-actions justify-end'>
 					{/* Hier füge ich einen Link hinzu, der es dem Benutzer ermöglicht, mehr Details zum Film anzuzeigen. WORK IN PROGRESS -> noch keine Detail Page*/}
